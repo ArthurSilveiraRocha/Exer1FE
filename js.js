@@ -19,23 +19,3 @@ sendButton.addEventListener('click', () => {
     chatBoxInput.value = '';
   }
 });
-
-// Add event listener to enter key
-chatBoxInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    event.preventDefault();
-    if (chatBoxInput.value.trim() !== '') {
-      const message = document.createElement('div');
-      message.classList.add('message');
-      message.classList.add('from-customer');
-      const contentElement = document.createElement('span');
-      contentElement.classList.add('content');
-      contentElement.textContent = chatBoxInput.value;
-      message.appendChild(contentElement);
-      chatHistory.appendChild(message);
-      chatHistory.scrollTop = chatHistory.scrollHeight;
-      chatBoxInput.value = '';
-    }
-  }
-});
-
