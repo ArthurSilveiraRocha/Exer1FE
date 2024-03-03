@@ -19,3 +19,19 @@ sendButton.addEventListener('click', () => {
     chatBoxInput.value = '';
   }
 });
+
+chatBoxInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && chatBoxInput.value.trim() !== '') {
+      event.preventDefault();
+      const message = document.createElement('div');
+      message.classList.add('message');
+      message.classList.add('from-agent');
+      const contentElement = document.createElement('span');
+      contentElement.classList.add('content');
+      contentElement.textContent = chatBoxInput.value;
+      message.appendChild(contentElement);
+      chatHistory.appendChild(message);
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+      chatBoxInput.value = '';
+    }
+  });  
